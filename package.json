@@ -4,7 +4,9 @@
   "description": "Employee Shift Scheduler for ERA Central",
   "main": "server/server.js",
   "scripts": {
-    "test": "mocha"
+    "start": "node $npm_package_main",
+    "test": "mocha",
+    "env": "env"
   },
   "repository": {
     "type": "git",
