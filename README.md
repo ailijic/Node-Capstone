@@ -42,7 +42,7 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
 ### Level III
 - As an admin, shift priority is given to users that are not late or absent
 
-## List of screens
+## Screen List
 - Sign in Page
 - Sign up Page
 - User Settings
