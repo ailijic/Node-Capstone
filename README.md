@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/ailijic/capstone-node/badge.svg?branch=master)](https://coveralls.io/github/ailijic/capstone-node?branch=master)
+[![build status](https://api.travis-ci.org/ailijic/capstone-node.svg)] (http://travis-ci.org/ailijic/capstone-node)
 # Node Capstone Project I 
 ## Epic
 Automate the scheduling of shifts for the ERA Central up-call desk using a web portal.
