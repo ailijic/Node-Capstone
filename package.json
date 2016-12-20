@@ -1,6 +1,11 @@
 {
   "name": "capstone-node",
   "version": "1.0.0",
+  "engines": {
+    "node": "^4.0.0",
+    "node": "^6.0.0",
+    "node": "^7.0.0"
+  },
   "description": "Employee Shift Scheduler for ERA Central",
   "main": "server/server.js",
   "scripts": {
@@ -24,6 +29,11 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
-    "mocha": "^3.2.0"
+    "coveralls": "^2.11.15",
+    "graceful-fs": "^4.0.0",
+    "jscover": "^1.0.0",
+    "mocha": "^3.2.0",
+    "mocha-lcov-reporter": "^1.2.0",
+    "uuid": "^3.0.1"
   }
 }
