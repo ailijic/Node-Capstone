@@ -1,0 +1,19 @@
+{
+  "name": "capstone-node",
+  "version": "1.0.0",
+  "description": "Employee Shift Scheduler for ERA Central",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ailijic/capstone-node.git"
+  },
+  "author": "ailijic",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ailijic/capstone-node/issues"
+  },
+  "homepage": "https://github.com/ailijic/capstone-node#readme"
+}
