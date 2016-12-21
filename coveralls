@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cat ./coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js
+
