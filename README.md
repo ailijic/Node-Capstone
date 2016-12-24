@@ -58,3 +58,5 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
 - Select shifts and times that you want to work
 - View to manually edit shifts
 - View to edit users (Admin)
+
+## Wish List
