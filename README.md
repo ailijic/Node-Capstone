@@ -21,14 +21,14 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
 ### Level II
 - As a user, I can easily filter out blocks e.g. weekends, weekdays, mornings, ...
 - As a user, I should be able to see my shifts on my Google Calendar
+- As a user, I can select "days I want to work", "days I can work", and "days I cant work"
+
+### Wish List
+- As a user, I should get a text message when I have a shift comming up
+- As a user, I will get a call when my shift starts to verify I am there
 - As a user, I should be able to be scheduled at multiple offices
   * As a user, I should not be scheduled to work at conflicting times in different offices
   * As a user, I should not be scheduled to work back-to-back shifts
-- As a user, I can select "days I want to work", "days I can work", and "days I cant work"
-- As a user, I should get a text message when I have a shift comming up
-
-### Level III
-- As a user, I will get a call when my shift starts to verify I am there
 
 ## Administrator Stories:
 ### Level I
@@ -38,12 +38,13 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
 
 ### Level II
 - As an admin, I can manually create accounts
-- As an admin, I can manually create accounts via a CSV
-- As an admin, I can manually import accounts from Google
-- As an admin, I can set a priority for users that I want to work more often
 
-### Level III
+### Wish List
 - As an admin, shift priority is given to users that are not late or absent
+- As an admin, I can set a priority for users that I want to work more often
+- As an admin, I can manually import accounts from Google
+
+================================================================================
 
 ## Screen List
 - Sign in Page
@@ -59,7 +60,6 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
 - View to manually edit shifts
 - View to edit users (Admin)
 
-<<<<<<< HEAD
 | Web Address | Result |
 |-------------|--------|
 | User has auth cookie | => **Dashboard** |
@@ -68,17 +68,11 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
 | Sign In Page | Result |
 |--------------|--------|
 | User inputs valid email AND password, then submits | => **Dashboard** |
-| User inputs an email AND no password, then submits | ERR MSG:
-Please Enter Password |
-| User inputs invalid email/password pair, then submits | ERR MSG:
-Please Enter Valid Username and Password |
+| User inputs an email AND no password, then submits | ERR MSG: Please Enter Password |
+| User inputs invalid email/password pair, then submits | ERR MSG: Please Enter Valid Username and Password |
 | User clicks create account | => **Create Account** |
 
 | Create Account | Result |
 |----------------|--------|
-| User inputs email and password for an account that already exists | =>
-**Dashboard** |
-| 
-=======
-## Wish List
->>>>>>> 86b42a07c9708c29fa8622778fc2253b5a5308d8
+| User inputs email and password for an account that already exists | => **Dashboard** |
+| Word | file |
