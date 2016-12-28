@@ -75,4 +75,5 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
 | Create Account | Result |
 |----------------|--------|
 | User inputs email and password for an account that already exists | => **Dashboard** |
-| Word | file |
+| User inputs invalid email | ERR MSG: Invalid Email: `Reason` |
+|
