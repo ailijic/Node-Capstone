@@ -45,13 +45,13 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
 - As an admin, I can manually import accounts from Google
 
 ## Site Map
-### Screen List
-- Sign in Page
+### Module List
+- Login Page
 - Create account
 - Dashboard
 - Settings
 - Calendar
-- Navigate between: current, past, and future months
+- Navigate Calendar (current, past, and future months)
 - Show scheduled shifts
 - Show open shifts
 - Show date when shifts will be finalized
@@ -60,20 +60,29 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
 - View to edit users (Admin)
 
 ### Interaction & Result
-| Web Address | Result |
+| Web Address | |
 |-------------|--------|
 | User has auth cookie | => **Dashboard** |
-| ELSE | => **Sign In Page** |
+| ELSE | => **Login Page** |
 
-| Sign In Page | Result |
+| Login Page | |
 |--------------|--------|
 | User inputs valid email AND password, then submits | => **Dashboard** |
 | User inputs an email AND no password, then submits | ERR MSG: Please Enter Password |
 | User inputs invalid email/password pair, then submits | ERR MSG: Please Enter Valid Username and Password |
 | User clicks create account | => **Create Account** |
 
-| Create Account | Result |
+| Create Account | |
 |----------------|--------|
 | User inputs email and password for an account that already exists | => **Dashboard** |
 | User inputs invalid email | ERR MSG: Invalid Email: `Reason` |
-|
+| User inputs passwords that don't match | ERR MSG: Passwords Do Not Match|
+| User inputs invalid password | ERR MSG: Password Invalid: `Reason` |
+| User clicks submit XOR hits `Enter`; IF no `ERR` | account is created; => **Login Page** |
+
+| Dashboard | |
+|-----------|-|
+| `Top Center` | => **Due Date** |
+| `Center` | => **Calendar** |
+| `Top Right` | => **Settings** |
+
