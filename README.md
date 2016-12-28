@@ -59,4 +59,26 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
 - View to manually edit shifts
 - View to edit users (Admin)
 
+<<<<<<< HEAD
+| Web Address | Result |
+|-------------|--------|
+| User has auth cookie | => **Dashboard** |
+| ELSE | => **Sign In Page** |
+
+| Sign In Page | Result |
+|--------------|--------|
+| User inputs valid email AND password, then submits | => **Dashboard** |
+| User inputs an email AND no password, then submits | ERR MSG:
+Please Enter Password |
+| User inputs invalid email/password pair, then submits | ERR MSG:
+Please Enter Valid Username and Password |
+| User clicks create account | => **Create Account** |
+
+| Create Account | Result |
+|----------------|--------|
+| User inputs email and password for an account that already exists | =>
+**Dashboard** |
+| 
+=======
 ## Wish List
+>>>>>>> 86b42a07c9708c29fa8622778fc2253b5a5308d8
