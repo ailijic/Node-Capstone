@@ -30,7 +30,7 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
   * As a user, I should not be scheduled to work at conflicting times in different offices
   * As a user, I should not be scheduled to work back-to-back shifts
 
-## Administrator Stories:
+## Administrator Stories
 ### Level I
 - As an admin, I should be able to sign up
 - As an admin, I should be able to log in
@@ -44,9 +44,8 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
 - As an admin, I can set a priority for users that I want to work more often
 - As an admin, I can manually import accounts from Google
 
-================================================================================
-
-## Screen List
+## Site Map
+### Screen List
 - Sign in Page
 - Create account
 - Dashboard
@@ -60,6 +59,7 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
 - View to manually edit shifts
 - View to edit users (Admin)
 
+### Interaction & Result
 | Web Address | Result |
 |-------------|--------|
 | User has auth cookie | => **Dashboard** |
