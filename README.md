@@ -47,17 +47,18 @@ Automate the scheduling of shifts for the ERA Central up-call desk using a web p
 ## Site Map
 ### Module List
 - Login Page
-- Create account
+- Create Account
 - Dashboard
 - Settings
 - Calendar
 - Navigate Calendar (current, past, and future months)
-- Show scheduled shifts
-- Show open shifts
-- Show date when shifts will be finalized
-- Select shifts and times that you want to work
-- View to manually edit shifts
-- View to edit users (Admin)
+- Show Shifts (Displays list of shifts on calendar)
+- Due Date (Show date when shifts will be finalized)
+- User Status (Show if and when user's selection has been submitted)
+- Filter Shifts (Select shifts and times that you want to work)
+- Edit Shifts (View to manually edit shifts [Admin])
+- Edit Users (View to edit users [Admin])
+- Forgot Password
 
 ### Interaction & Result
 | Web Address | |
