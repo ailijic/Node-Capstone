@@ -2,20 +2,26 @@
 
 start()
 function start () {
-  serverStart()
-  function serverStart() {
-    const express = require('express')
-    const app = express()
+  'use strict'
 
-    app.use(express.static('public'))
-    app.get('/login', (req, res) => {
-      res.sendFile(`${__dirname}/public/login.html`)
-      // res.send(`${__dirname}`)
-    })
+  const bodyParser = require('body-parser')
+  const parser = bodyParser.json()
 
-    app.listen(process.env.PORT || 8080)
+  const express = require('express')
+  const app = express()
 
-    exports.app = app
-  }
+  app.use(express.static('public'))
+  
+  app.get('/login', (req, res) => {
+    res.sendFile(`${__dirname}/public/login.html`)
+  })
+
+  app.post('/login', parser, (req, res) => {
+    console.log(req.body);
+  });
+
+  app.listen(process.env.PORT || 8080)
+
+  exports.app = app
 }
 

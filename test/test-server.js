@@ -6,34 +6,34 @@ function start () {
 
   const chai = require('chai')
   const chaiHttp = require('chai-http')
-  const server = require('../server/server.js')
 
   const should = chai.should()
   const expect = chai.expect
-  const app = server.app
-  const storage = server.storage
-
   chai.use(chaiHttp)
 
-  describe('index page', function () {
-    /*
-    before(function (done) {
-      server.runServer(function () {
-        return done()
-      })
-    })
-    */
+  const server = require('../server.js')
+  const app = server.app
 
+  function checkIfRouteExists (route) {
+    chai.request(app)
+    .get(route)
+    .end((err, res) => {
+      expect(err).to.deep.equal(null)
+      res.should.have.status(200)
+      res.should.be.html
+      this.done()
+    })
+  }
+  describe('index page', function () {
     it('exists', function (done) {
-      chai.request(app)
-        .get('/')
-        .end(function (err, res) {
-          expect(err).to.deep.equal(null)
-          res.should.have.status(200)
-          res.should.be.html
-          done()
-        })
+      checkIfRouteExists.call({done}, '/');
     })
   })
+
+  describe('login page', function () {
+    it('exists', function (done) {
+      checkIfRouteExists.call({done}, '/login')
+    })
+  }) 
 }
 
