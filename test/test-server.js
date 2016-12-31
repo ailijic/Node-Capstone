@@ -16,13 +16,13 @@ function start () {
 
   function checkIfRouteExists (route) {
     chai.request(app)
-    .get(route)
-    .end((err, res) => {
-      expect(err).to.deep.equal(null)
-      res.should.have.status(200)
-      res.should.be.html
-      this.done()
-    })
+      .get(route)
+      .end((err, res) => {
+        expect(err).to.deep.equal(null)
+        res.should.have.status(200)
+        res.should.be.html
+        this.done()
+      })
   }
   describe('index page', function () {
     it('exists', function (done) {
@@ -34,6 +34,13 @@ function start () {
     it('exists', function (done) {
       checkIfRouteExists.call({done}, '/login')
     })
-  }) 
+    it('accepts a post request', function() {
+      chai.request(app)
+        .post('/login')
+        .send({ username: 'ai', password: 'password' })
+        .end(function(err, res) {
+          })
+    })
+  })
 }
 
