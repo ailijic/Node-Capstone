@@ -13,6 +13,8 @@ function start () {
   const express = require('express')
   const app = express()
 
+  const ASQ = require('asynquence-contrib')
+
   app.use(bodyParser.json());
   app.use(express.static('public'))
 
@@ -21,31 +23,7 @@ function start () {
     if (err) {
       console.log(`ERR: ${err}`);
     }
-  });
-  const startTime = '2016-12-31T13:00:00Z';
-  const endTime = '2016-12-31T17:00:00Z';
-  let fs = require('fs');
-  fs.readFile('cal-data.json', 'utf8', (err, data) => {
-    var obj = JSON.parse(data);
-    console.log(data);
-    obj.scheduleArray.forEach((obj, index, array) => {
-      shift.create(
-        {
-          title: obj.user,
-          start: obj.start,
-          end: obj.end,
-          user: obj.user,
-        }, 
-        function(err, item){
-          if(err){
-            console.log(`ERR: ${err}`)
-          } else {
-            console.log(`MSG: Shift saved`)
-          }
-        }
-      );
-    });
-  });
+  })
 
   app.get('/login', (req, res) => {
     res.sendFile(`${__dirname}/public/login.html`)

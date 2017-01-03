@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/ailijic/capstone-node#readme",
   "dependencies": {
+    "asynquence": "^0.10.0",
+    "asynquence-contrib": "^0.27.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "fullcalendar": "^3.1.0",
