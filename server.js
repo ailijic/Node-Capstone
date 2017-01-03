@@ -24,21 +24,28 @@ function start () {
   });
   const startTime = '2016-12-31T13:00:00Z';
   const endTime = '2016-12-31T17:00:00Z';
-  shift.create(
-    {
-      title: 'shift1',
-      start: startTime,
-      end: endTime,
-      user: 'frank'
-    }, 
-    function(err, item){
-      if(err){
-        console.log(`ERR: ${err}`)
-      } else {
-        console.log(`MSG: Shift saved`)
-      }
-    }
-  );
+  let fs = require('fs');
+  fs.readFile('cal-data.json', 'utf8', (err, data) => {
+    var obj = JSON.parse(data);
+    console.log(data);
+    obj.scheduleArray.forEach((obj, index, array) => {
+      shift.create(
+        {
+          title: obj.user,
+          start: obj.start,
+          end: obj.end,
+          user: obj.user,
+        }, 
+        function(err, item){
+          if(err){
+            console.log(`ERR: ${err}`)
+          } else {
+            console.log(`MSG: Shift saved`)
+          }
+        }
+      );
+    });
+  });
 
   app.get('/login', (req, res) => {
     res.sendFile(`${__dirname}/public/login.html`)
