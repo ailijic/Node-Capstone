@@ -11,8 +11,8 @@ function start() {
 
   let getJsonObj = (() => {
     var _ref = _asyncToGenerator(function* () {
-      const JsonString = fsp.readFile('cal-data.json', 'utf8');
-      return JSON.parse((yield JsonString));
+      const JsonString = yield fsp.readFile('cal-data.json', 'utf8');
+      return JSON.parse(JsonString);
     });
 
     return function getJsonObj() {
@@ -23,12 +23,13 @@ function start() {
   const fsp = require('fs-promise');
 
   const methods = {
-    getJ: getJsonObj
+    get: getJsonObj
   };
   module.exports = methods;
-
+  /*
   getJsonObj().then(obj => {
-    console.log(obj);
-  });
+    console.log(obj)
+  })
+  */
   // END OF MODULE
 }

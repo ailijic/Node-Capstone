@@ -4,18 +4,21 @@ start()
 function start () {
   'use strict'
 
-  const bodyParser = require('body-parser')
-  const parser = bodyParser.json()
+  //const bodyParser = require('body-parser')
+  //const parser = bodyParser.json()
 
   const dbConfig = require('./config')
   const shift = require('./models/shift')
 
+  const db = require('./database')
+
   const express = require('express')
   const app = express()
 
-  app.use(bodyParser.json());
+  // app.use(bodyParser.json());
   app.use(express.static('public'))
 
+  /*
   const mongoose = require('mongoose');
   mongoose.connect(dbConfig.DATABASE_URL, (err) => {
     if (err) {
@@ -46,15 +49,27 @@ function start () {
       );
     });
   });
+  */
 
   app.get('/login', (req, res) => {
     res.sendFile(`${__dirname}/public/login.html`)
   })
 
+    /*
   app.post('/login', parser, (req, res) => {
     console.log(req.body);
   });
+  */
 
+  app.get('/shifts', (req, res) => {
+    db.get().then(dbObj => {
+      let shiftObj = {
+        events: dbObj.scheduleArray
+      }
+      res.status(201).send(shiftObj)
+    })
+  }) 
+    /*
   app.get('/shifts', (req, res) => {
     const moment = require('moment');
     let t = () => moment('2016-12-31T13:00:00');
@@ -86,6 +101,8 @@ function start () {
     res.status(201)
     res.send(shiftObj)
   })
+  */
+
   app.listen(process.env.PORT || 8080)
 
   exports.app = app
