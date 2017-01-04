@@ -4,19 +4,10 @@ start()
 function start () {
   'use strict'
 
-  const bodyParser = require('body-parser')
-  const parser = bodyParser.json()
-
   const dbConfig = require('./config')
   const shift = require('./models/shift')
 
-  const express = require('express')
-  const app = express()
-
   const ASQ = require('asynquence-contrib')
-
-  app.use(bodyParser.json());
-  app.use(express.static('public'))
 
   const mongoose = require('mongoose');
   mongoose.connect(dbConfig.DATABASE_URL, (err) => {
@@ -24,6 +15,12 @@ function start () {
       console.log(`ERR: ${err}`);
     }
   })
+
+  const express = require('express')
+  const app = express()
+  const parser = require('body-parser').json()
+  app.use(parser);
+  app.use(express.static('public'))
 
   app.get('/login', (req, res) => {
     res.sendFile(`${__dirname}/public/login.html`)
