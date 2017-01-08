@@ -1,5 +1,5 @@
 function Shift (start, end, user) {
-  return { start, end, user };
+  return { title: user, start, end, user };
 }
 function Schedule () {
   this.scheduleArray = [];

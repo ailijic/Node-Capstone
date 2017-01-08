@@ -1,110 +1,45 @@
-// server/server.js
-
-start()
+start();
 function start () {
-  'use strict'
+  'use strict';
 
-  //const bodyParser = require('body-parser')
-  //const parser = bodyParser.json()
+  const db = require('./database');
 
-  const dbConfig = require('./config')
-  const shift = require('./models/shift')
 
-  const db = require('./database')
+ const express = require('express');
+ const app = express();
 
-  const express = require('express')
-  const app = express()
+ // app.use(bodyParser.json());
+ app.use(express.static('public'));
 
-  // app.use(bodyParser.json());
-  app.use(express.static('public'))
+ app.get('/login', (req, res) => {
+   res.sendFile(`${__dirname}/public/login.html`);
+ });
 
-  /*
-  const mongoose = require('mongoose');
-  mongoose.connect(dbConfig.DATABASE_URL, (err) => {
-    if (err) {
-      console.log(`ERR: ${err}`);
-    }
-  });
-  const startTime = '2016-12-31T13:00:00Z';
-  const endTime = '2016-12-31T17:00:00Z';
-  let fs = require('fs');
-  fs.readFile('cal-data.json', 'utf8', (err, data) => {
-    var obj = JSON.parse(data);
-    console.log(data);
-    obj.scheduleArray.forEach((obj, index, array) => {
-      shift.create(
-        {
-          title: obj.user,
-          start: obj.start,
-          end: obj.end,
-          user: obj.user,
-        }, 
-        function(err, item){
-          if(err){
-            console.log(`ERR: ${err}`)
-          } else {
-            console.log(`MSG: Shift saved`)
-          }
-        }
-      );
-    });
-  });
-  */
-
-  app.get('/login', (req, res) => {
-    res.sendFile(`${__dirname}/public/login.html`)
-  })
-
-    /*
-  app.post('/login', parser, (req, res) => {
-    console.log(req.body);
-  });
-  */
-
-  app.get('/shifts', (req, res) => {
-    db.get().then(dbObj => {
-      let shiftObj = {
-        events: dbObj.scheduleArray
-      }
-      res.status(201).send(shiftObj)
-    })
-  }) 
-    /*
-  app.get('/shifts', (req, res) => {
-    const moment = require('moment');
-    let t = () => moment('2016-12-31T13:00:00');
-    let shiftObj = {
-      events: [
-        {
-            title  : 'shift1',
-          start  : t().format(),
-          end: t().add(5, 'hours').format(),
-        },
-        {
-            title  : 'shift2',
-          start  : t().subtract(4, 'hours').format(),
-          end: t().format(),
-        },
-        {
-            title  : 'event2',
-            start  : '2017-01-05',
-            end    : '2017-01-07'
-        },
-        {
-            title  : 'event3',
-            start  : '2017-01-09T12:30:00',
-            end: '2017-01-09T17:00:00',
-            allDay : false // will make the time show
-        }
-      ]
-    }
-    res.status(201)
-    res.send(shiftObj)
-  })
-  */
-
+ // app.post('/login', parser, (req, res) => {
+ //   console.log(req.body);
+ // });
+ //
+ //  app.get('/shifts', (req, res) => {
+ //    db.get().then(dbObj => {
+ //      let shiftObj = {
+ //        events: dbObj.scheduleArray
+ //      }
+ //      res.status(201).send(shiftObj)
+ //    })
+ //  })
+ //
+ //  app.get('/dueDate', (req, res) => {
+ //    let dueDate = new Date('20 December 2016')
+ //    res.status(201).send(dueDate.toISOString())
+ //  })
+ //
+ //  const shiftRouter = require('./shiftRouter')
+ //  app.use('/shifts', shiftRouter)
+  
+  var birds = require('./birds')
+  app.use('/birds', birds)
+  
   app.listen(process.env.PORT || 8080)
-
   exports.app = app
 }
 

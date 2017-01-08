@@ -2,10 +2,20 @@ start()
 function start () {
   'use strict'
 
+  function getDueDate () {
+    return $.get('/dueDate')
+      .then(data => {
+        return new Date(data)
+      })
+  }
+
   $(document).ready(function() {
-    // page is now ready, initialize the calendar...
-    /*
-    */
+    getDueDate().then(dateObj => {
+      console.log(dateObj)
+      $('#dueDate').append($("<p></p>"))
+        .text(dateObj.toDateString())
+    })
+    
     getShifts()
     function getShifts () {
       $.ajax({
@@ -32,6 +42,9 @@ function start () {
             */
             color: 'yellow',   // an option!
             textColor: 'black' // an option!
+            eventClick: function(event) {
+              alert('event.url')
+            }
           });
         }
       })
